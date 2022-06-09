@@ -1,5 +1,5 @@
 {# Création d'une variable sur Twig #}
-{% set menu = ["Magasin","Contact"] %}
+{% set menu = ["Magasin","Contact","Liste Produits"] %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +15,9 @@
         integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
     <link href="jquery.responsive-collapse.css" rel="stylesheet">
     <link rel="icon" href="{{ asset('assets/img/steak.jpg') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>{% block titre %} Blog Dev {% endblock %}</title>
 
 </head>

@@ -1,9 +1,13 @@
-<!DOCTYPE html>
+{% extends "layouts/base.html.twig" %}
 
-<title>Produit</title>
+{% block titre %}
+Informations Produit
+{% endblock %}
 
-{% block body %}
-    <h1>Produit</h1>
+
+{% block main %}
+<div class="container title mt-5 text-center">
+    <h1>Informations | {{ produit.titre }}</h1>
 
     <table class="table">
         <tbody>
@@ -23,12 +27,11 @@
                 <th>Prix</th>
                 <td>{{ produit.prix }}</td>
             </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ produit.categorie.libelle }}</td>
+            </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('app_produit_index') }}">back to list</a>
-
-    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
-
-    {{ include('produit/_delete_form.html.twig') }}
+</div>
 {% endblock %}

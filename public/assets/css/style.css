@@ -5,11 +5,10 @@
   }
   
   
-  .main {
-    display: grid;
+  .body {
     place-content: center;
     width: 100vw;
-    height: 100vh;
+    min-height: 80vh;
   }
   
   .slideshow {
