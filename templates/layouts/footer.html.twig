@@ -1,0 +1,30 @@
+<footer>
+    <div class="container mt-5">
+        <footer class="row row-cols-5 py-5 my-5 border-top mt-auto">
+            <div class="col-3">
+                <p>&copy; MachinShop {{"now"|date("Y")}}</p>
+            </div>
+            <div class="col-3">
+                <h5>Navigation</h5>
+                <div>
+                    {% for ele in menu %}
+                    {% if ele != "Magasin" %}
+                    <a href="{{ ele|lower|replace({' ':'-'}) }}">{{ele}}</a><br>
+                    {% else %}
+                    <a href="/">Magasin</a><br>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-3">
+                <h5>Nos partenaires</h5>
+            </div>
+            <div class="col-3">
+                <h5>Newsletter</h5>
+                <label>Votre email</label>
+                <input type="text">
+                <button class="btn btn-primary mt-3">Envoyer</button>
+            </div>
+        </footer>
+    </div>
+</footer>

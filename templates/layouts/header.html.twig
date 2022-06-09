@@ -1,0 +1,33 @@
+<header>
+    <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand">MachinShop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {# Début de la boucle #}
+                {% for ele in menu %}
+                {% if ele == "Magasin" %}
+                <li class="nav-item">
+                    {# affichage == Echo #}
+                    <a class="nav-link" aria-current="page" href="/">Magasin</a>
+                </li>
+                {% elseif ele == "Connexion" %}
+                <li class="nav-item">
+                    {# affichage == Echo #}
+                    <a class="nav-link" aria-current="page" href="{{ path('app_login') }}">Connexion</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                   {# affichage == Echo #}
+                   <a class="nav-link" aria-current="page" href="{{ path('app_' ~ ele|lower|replace({' ':'-'})) }}">{{ele}}</a> 
+                </li>
+                {% endif %}
+                {% endfor %}
+                {# Fin de la boucle #}
+            </ul>
+        </div>
+    </nav>
+</header>

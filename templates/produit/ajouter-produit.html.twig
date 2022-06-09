@@ -1,0 +1,14 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block titre %}
+    Ajouter Produit
+{% endblock %}
+
+{% block main %}
+    <div class="row title mt-5 text-center">
+        <h1>Ajouter un Produit</h1>
+    </div>
+
+    {{ include('produit/_form.html.twig') }}
+
+{% endblock %}

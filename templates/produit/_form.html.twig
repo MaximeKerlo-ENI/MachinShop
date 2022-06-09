@@ -1,0 +1,9 @@
+{{ form_start(produitForm) }}
+<div class="container col-6 offset-3 mt-3">
+    {{form_row(produitForm.titre)}}
+    {{form_row(produitForm.description)}}
+    {{form_row(produitForm.prix)}}
+    {{form_row(produitForm.categorie)}}
+    <button class="btn btn-primary">{{ button_label|default('Ajouter produit') }}</button>
+</div>
+{{ form_end(produitForm) }}
