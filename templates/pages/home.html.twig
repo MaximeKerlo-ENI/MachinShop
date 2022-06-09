@@ -7,6 +7,11 @@ Magasin
 
 {% block main %}
 <div class="row title mt-5 text-center">
+    {% if app.user %}
+    <div>
+      Vous êtes connecté en tant que {{ app.user.userIdentifier }}
+    </div>
+    {% endif %}
     <div class="container mt-3 text-center">
         {% for label,messages in app.flashes %}
         {% for message in messages %}

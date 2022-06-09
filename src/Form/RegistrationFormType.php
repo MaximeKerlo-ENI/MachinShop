@@ -21,9 +21,10 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
+                'label' => 'Termes et Conditions',
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Merci de valider les Termes et Conditions.',
                     ]),
                 ],
             ])
@@ -33,11 +34,11 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez renseigner un mot de passe',
                     ]),
                     new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'min' => 3,
+                        'minMessage' => 'Votre mot de passe doit faire un minimum de {{ limit }} caractères',
                         'max' => 4096,
                     ]),
                 ],

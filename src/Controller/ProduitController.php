@@ -21,21 +21,26 @@ class ProduitController extends AbstractController
      */
     public function nouveauSouhait(Request $request, ProduitRepository $pr): Response
     {
-
-        $produit = new Produit();
-        $produitForm = $this->createForm(ProduitType::class, $produit);
-        $produitForm->handleRequest($request);
-
-        if ($produitForm->isSubmitted() && $produitForm->isValid()) {
-            $pr->add($produit, true);
-            $this->addFlash('success', 'Nouveau article ajouté.');
-            return $this->redirectToRoute("app_home");
+        if($this->getUser()==null){
+            return $this->redirectToRoute("app_login");
         }
+        else{
+            $produit = new Produit();
+            $produitForm = $this->createForm(ProduitType::class, $produit);
+            $produitForm->handleRequest($request);
 
-        return $this->render(
-            "produit/ajouter-produit.html.twig",
-            ["produitForm" => $produitForm->createView()]
-        );
+            if ($produitForm->isSubmitted() && $produitForm->isValid()) {
+                $pr->add($produit, true);
+                $this->addFlash('success', 'Nouveau article ajouté.');
+                return $this->redirectToRoute("app_home");
+            }
+
+            return $this->render(
+                "produit/ajouter-produit.html.twig",
+                ["produitForm" => $produitForm->createView()]
+            );
+        }
+        
     }
 
     /**
