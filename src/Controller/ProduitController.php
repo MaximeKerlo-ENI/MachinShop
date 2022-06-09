@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Produit;
 use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,9 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ProduitController extends AbstractController
 {
-    
+
         /**
-         * @isGranted("ROLE_USER)
+         * @IsGranted("ROLE_USER")
          * @Route("/liste-produits",name="app_liste-produits")
          */
         public function liste(ProduitRepository $pr):Response{
@@ -26,7 +27,7 @@ class ProduitController extends AbstractController
         }
 
     /**
-     * @isGranted("ROLE_USER)
+     * @IsGranted("ROLE_USER")
      * @Route("/ajouter-produit",name="app_ajouter-produit")
      */
     public function nouveauSouhait(Request $request, ProduitRepository $pr): Response
@@ -54,7 +55,7 @@ class ProduitController extends AbstractController
     }
 
     /**
-     * @isGranted("ROLE_USER)
+     * @IsGranted("ROLE_USER")
      * @Route("/{id}", name="app_produit_show", methods={"GET"})
      */
     public function show(Produit $produit): Response
@@ -65,7 +66,7 @@ class ProduitController extends AbstractController
     }
 
     /**
-     * @isGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/edit", name="app_produit_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Produit $produit, ProduitRepository $produitRepository): Response
@@ -86,7 +87,7 @@ class ProduitController extends AbstractController
     }
 
     /**
-     * @isGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}", name="app_produit_delete", methods={"POST"})
      */
     public function delete(Request $request, Produit $produit, ProduitRepository $produitRepository): Response
